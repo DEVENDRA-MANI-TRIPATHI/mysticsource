@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useDebounceValue,useDebounceCallback } from "usehooks-ts";
+import {useDebounceCallback } from "usehooks-ts";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { signUpSchema } from "@/schemas/signUpSchema";
@@ -50,7 +50,8 @@ const page = () => {
         setUsernameMessage('')
         try {
           const response = await axios.get(`/api/unique-username-check?username=${username}`)
-          setUsernameMessage(response.data.message)
+          let message=response.data.message
+          setUsernameMessage(message)
         } catch (error) {
           const axiosError = error as AxiosError<ApiResponse>
           setUsernameMessage(axiosError.response?.data.message ?? "Error while checking username");
@@ -86,7 +87,7 @@ const page = () => {
   }
   
   return (
-    <div className="flex justify-center items-center min-h-screen ">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 ">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-ld shadow-md">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
