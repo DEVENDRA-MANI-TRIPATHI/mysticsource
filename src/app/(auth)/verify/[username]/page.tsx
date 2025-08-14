@@ -27,6 +27,8 @@ const verifyAccount = () => {
                 username: params.username,
                 code: data.code
             })
+        
+            router.replace(`/sign-in`)
             
         } catch (error) {
             console.error("Error in signup user", error);
