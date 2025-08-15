@@ -4,15 +4,11 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User.model";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
-
 export const dynamic = "force-dynamic";
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { messageid: string } }
-) {
+export async function DELETE(request: NextRequest, context: any) {
   try {
-    const messageId = params.messageid;
+    const messageId = context.params?.messageid;
 
     if (!messageId) {
       return Response.json(
