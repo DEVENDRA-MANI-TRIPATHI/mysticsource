@@ -8,10 +8,12 @@ export default function AppLayout({
 }) {
   return (
     <Providers>
-      <Navbar />
-      <main className="container mx-auto">
-        {children}
-      </main>
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-900 to-gray-800">
+        <Navbar />
+        <main className="flex-1 w-full">
+          {children}
+        </main>
+      </div>
     </Providers>
   )
 }
