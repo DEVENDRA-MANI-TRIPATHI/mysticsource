@@ -5,18 +5,18 @@ import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function DELETE(
     request: Request,
-  { params }: { params: { messageid: string } }
+  context: { params: { messageid: string } }
 ) {
     try {
 
-        if (!params?.messageid) {
+        if (!context?.params?.messageid) {
             return Response.json({
                 success: false,
                 message: "Message ID is required"
             }, { status: 400 });
         }
         
-        const messageId = params.messageid;
+        const messageId = context?.params.messageid;
         console.log("Attempting to delete message:", messageId);
         
         await dbConnect();
