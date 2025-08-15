@@ -4,21 +4,19 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User.model";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
+
 export const dynamic = "force-dynamic";
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: { messageid: string } }
+  { params }: { params: { messageid: string } }
 ) {
   try {
-    const messageId = context.params?.messageid;
+    const messageId = params.messageid;
 
     if (!messageId) {
       return Response.json(
-        {
-          success: false,
-          message: "Message ID is required",
-        },
+        { success: false, message: "Message ID is required" },
         { status: 400 }
       );
     }
@@ -31,23 +29,16 @@ export async function DELETE(
 
     if (!session?.user?.email) {
       return Response.json(
-        {
-          success: false,
-          message: "Not Authenticated",
-        },
+        { success: false, message: "Not Authenticated" },
         { status: 401 }
       );
     }
 
-    // Find user by email from session
     const user = await UserModel.findOne({ email: session.user.email });
 
     if (!user) {
       return Response.json(
-        {
-          success: false,
-          message: "User not found",
-        },
+        { success: false, message: "User not found" },
         { status: 404 }
       );
     }
@@ -59,28 +50,19 @@ export async function DELETE(
 
     if (updatedResult.modifiedCount === 0) {
       return Response.json(
-        {
-          success: false,
-          message: "Message not found or already deleted",
-        },
+        { success: false, message: "Message not found or already deleted" },
         { status: 404 }
       );
     }
 
     return Response.json(
-      {
-        success: true,
-        message: "Message deleted successfully",
-      },
+      { success: true, message: "Message deleted successfully" },
       { status: 200 }
     );
   } catch (error) {
     console.error("Error while deleting message:", error);
     return Response.json(
-      {
-        success: false,
-        message: "Error deleting message",
-      },
+      { success: false, message: "Error deleting message" },
       { status: 500 }
     );
   }
