@@ -49,10 +49,16 @@ export default function Home() {
             Share thoughts freely, receive honest feedback, grow authentically.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-              Get Started
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+            <Link href ='/sign-up'>
+              <Button
+                size="lg"
+                className="bg-blue-500 hover:bg-blue-600"
+              >
+                Get Started
+              </Button>
+            </Link>
+            
+            <Button size="lg" variant="outline" className="text-white bg-white/20 border-white hover:bg-white/10">
               Learn More
             </Button>
           </div>

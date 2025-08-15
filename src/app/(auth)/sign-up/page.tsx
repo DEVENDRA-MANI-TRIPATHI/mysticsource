@@ -87,13 +87,13 @@ const page = () => {
   }
   
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 ">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-ld shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 ">
+      <div className="w-full max-w-md p-8 space-y-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
             Join Mystic Source
           </h1>
-          <p className="mb-4">
+          <p className="mb-4 text-gray-600">
               Sign up to start your anonymous adventure
           </p>
         </div>
@@ -104,9 +104,9 @@ const page = () => {
                   name="username"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Username</FormLabel>
+                      <FormLabel className="text-gray-400">Username</FormLabel>
                       <FormControl>
-                        <Input placeholder="username"
+                        <Input className="text-gray-200" placeholder="username"
                           {...field}
                           onChange={(e) => {
                             field.onChange(e)
@@ -127,9 +127,9 @@ const page = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel className="text-gray-400">Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="email"
+                        <Input className="text-gray-200" placeholder="email"
                           {...field}
                         />
                       </FormControl>
@@ -142,9 +142,9 @@ const page = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel className="text-gray-400">Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="password"
+                        <Input className="text-gray-200" type="password" placeholder="password"
                           {...field}
                         />
                       </FormControl>
@@ -152,20 +152,20 @@ const page = () => {
                     </FormItem>
                   )}
                 />
-            <Button type="submit" disabled={isSubmitting}>
+            <Button className="bg-blue-800 hover:bg-blue-700" type="submit" disabled={isSubmitting}>
               {
                 isSubmitting ? (
                   <>
-                    <Loader/> Please wait
+                    <Loader className="animate-spin"/> Please wait
                   </>
                 ):('Signup')
               }
             </Button>
           </form>
         </Form>
-        <div className="text-center mt-4">
+        <div className="text-center mt-4 text-gray-300">
           <p>
-            Already a member?{''}
+            Already a member? {''}
             <Link href="/sign-in" className="text-blue-600 hover:text-blue-800">
               Sign in
             </Link>
