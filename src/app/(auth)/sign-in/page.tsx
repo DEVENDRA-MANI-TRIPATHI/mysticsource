@@ -77,7 +77,7 @@ const page = () => {
                     <FormItem>
                       <FormLabel className="text-gray-400">Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="email"
+                        <Input className="text-gray-200" placeholder="email"
                           {...field}
                         />
                       </FormControl>
@@ -92,7 +92,7 @@ const page = () => {
                     <FormItem>
                       <FormLabel className="text-gray-400">Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="password"
+                        <Input className="text-gray-200" type="password" placeholder="password"
                           {...field}
                         />
                       </FormControl>
