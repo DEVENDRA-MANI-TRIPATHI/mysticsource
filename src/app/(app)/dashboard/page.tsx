@@ -104,7 +104,7 @@ function UserDashboard() {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(profileUrl);
-    
+    toast("Profile URL copied to clipboard");
   };
 
   return (
@@ -120,7 +120,10 @@ function UserDashboard() {
             disabled
             className="input input-bordered w-full p-2 mr-2"
           />
-          <Button onClick={copyToClipboard}>Copy</Button>
+          <Button
+            onClick={copyToClipboard}
+            className="hover:bg-gray-700"
+          >Copy</Button>
         </div>
       </div>
 

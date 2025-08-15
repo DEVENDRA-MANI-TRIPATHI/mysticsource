@@ -20,7 +20,7 @@ export async function POST(request:Request) {
                 message:"User not Found"
             },{status:404})
         }
-        if (user.isAcceptingMessage) {
+        if (!user.isAcceptingMessage) {
             return Response.json({
                 success: false,
                 message:"User is not Accepting Messages"

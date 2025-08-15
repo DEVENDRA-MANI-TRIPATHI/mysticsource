@@ -104,7 +104,7 @@ const page = () => {
               {
                 isSubmitting ? (
                   <>
-                    <Loader/> Please wait
+                    <Loader className="animate-spin"/> Please wait
                   </>
                 ):('sign In')
               }
@@ -115,7 +115,7 @@ const page = () => {
           <p>
             Not a member?{''}
             <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
-              Sign in
+              Sign up
             </Link>
           </p>
         </div>
