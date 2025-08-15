@@ -3,7 +3,7 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User.model";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
-export async function DELETE(request: Request, { params }: { params: { messageid: string } }) {
+export async function DELETE(request: Request, { params }:{ params: { messageid: string } }) {
     try {
 
         if (!params?.messageid) {
