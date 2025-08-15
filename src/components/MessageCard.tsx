@@ -18,7 +18,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "./ui/button"
-import { X } from "lucide-react"
+import { Trash2 } from 'lucide-react'
 import { Message } from "@/model/User.model"
 import {toast} from "sonner"
 import axios from "axios"
@@ -40,20 +40,20 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
     }
 
   return (
-    <Card className="card-bordered">
+    <Card className="card-bordered bg-gray-800 border-gray-600">
         <CardHeader>
               <div className="flex justify-between items-center">
                   
-                  <CardTitle>{message.content}</CardTitle>
+                  <CardTitle className='text-gray-100'>{message.content}</CardTitle>
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
-                                <Button variant="destructive">
-                                    <X className="w-full h-5" />
+                                <Button variant="ghost" size="icon" className="text-red-500 hover:bg-red-500/10">
+                                    <Trash2 className="w-full h-10" />
                                 </Button>
                         </AlertDialogTrigger>
-                        <AlertDialogContent>
+                        <AlertDialogContent className='bg-gray-800 border-gray-700'>
                             <AlertDialogHeader>
-                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                            <AlertDialogTitle className='text-gray-100'>Are you absolutely sure?</AlertDialogTitle>
                             <AlertDialogDescription>
                                 This action cannot be undone. This will permanently delete the Message and remove your data from our servers.
                             </AlertDialogDescription>
@@ -66,7 +66,7 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
                     </AlertDialog>
                   
               </div>
-              <div className="text-sm">
+              <div className="text-sm text-gray-400">
                 {dayjs(message.createdAt).format('MMM D, YYYY h:mm A')}
               </div>
         

@@ -28,7 +28,7 @@ const Navbar = () => {
                             <div className='hidden md:block text-center'>
                                 <span className='text-gray-300 font-light tracking-wide'>
                                     Welcome,{' '}
-                                    <span className='text-blue-400 font-medium bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent'>
+                                    <span className='text-blue-400 font-medium bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text'>
                                         {user?.username || user?.email}
                                     </span>
                                 </span>
